@@ -1,5 +1,6 @@
 import tkinter as tk
 from trie import Trie
+import webbrowser
 
 # Load words from the file and insert them into the Trie
 trie = Trie()
@@ -36,9 +37,12 @@ title_label = tk.Label(root, text="Word Auto-complete", font=("Helvetica", 16))
 title_label.pack(pady=10)
 
 # Add GitHub link
-github_label = tk.Label(root, text="https://github.com/meta-syfu", font=("Helvetica", 10), fg="blue", cursor="hand2")
+def open_github(event):
+    webbrowser.open_new("https://github.com/meta-syfu/Real-Time-Auto-Completion-word")
+
+github_label = tk.Label(root, text="GitHub Repo", font=("Helvetica", 10), fg="blue", cursor="hand2")
 github_label.pack(pady=5)
-github_label.bind("<Button-1>", lambda e: root.clipboard_append("https://github.com/meta-syfu"))
+github_label.bind("<Button-1>", open_github)
 
 # Frame for input and suggestion listbox
 frame = tk.Frame(root)
